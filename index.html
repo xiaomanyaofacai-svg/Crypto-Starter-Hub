@@ -233,5 +233,20 @@
         });
       });
     </script>
+    <script>
+document.querySelectorAll(".wallet-copy-btn").forEach(button => {
+  button.addEventListener("click", () => {
+    const targetId = button.getAttribute("data-copy-target");
+    const text = document.getElementById(targetId).innerText;
+
+    navigator.clipboard.writeText(text).then(() => {
+      button.innerText = "Copied!";
+      setTimeout(() => {
+        button.innerText = "Copy";
+      }, 1500);
+    });
+  });
+});
+</script>
   </body>
 </html>
